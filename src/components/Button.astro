@@ -1,9 +1,24 @@
 ---
 interface Props {
+  shape: "square" | "rounded";
   text: string;
+  type: "primary" | "secondary";
 }
 
-const { text } = Astro.props as Props;
+const { shape, text, type } = Astro.props as Props;
 ---
 
-<a href="#0">{text}</a>
+<a
+  class:list={[
+    "text-lg py-2 px-5 transition-colors ease-in-out duration-200",
+    {
+      "bg-blue-500 text-white hocus:bg-blue-600": type == "primary",
+      "bg-gray-500 text-white hocus:bg-gray-600": type == "secondary",
+      "rounded-md": shape == "rounded",
+      "rounded-none": shape == "square",
+    },
+  ]}
+  href="#0"
+>
+  {text}
+</a>

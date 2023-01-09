@@ -5,27 +5,27 @@ import Navbar from "../components/Navbar.astro";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<Navbar title="Album" />
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body class="font-sans">
+    <Navbar title="Album" />
 
-		<Jumbotron title="Album example">
-			<p>
-				Something short and leading about the collection below—its contents, the
-				creator, etc. Make it short and sweet, but not too short so folks don't
-				simply skip over it entirely.
-			</p>
+    <Jumbotron title="Album example">
+      <p class="text-base leading-relaxed text-gray-500 sm:text-lg">
+        Something short and leading about the collection below—its contents, the
+        creator, etc. Make it short and sweet, but not too short so folks don't
+        simply skip over it entirely.
+      </p>
 
-			<div>
-				<Button text="Main call to action" />
-				<Button text="Secondary action" />
-			</div>
-		</Jumbotron>
-	</body>
+      <div class="mt-5 mx-auto max-w-md flex flex-col justify-center gap-2 sm:flex-row sm:gap-1">
+        <Button shape="rounded" type="primary" text="Main call to action" />
+        <Button shape="rounded" type="secondary" text="Secondary action" />
+      </div>
+    </Jumbotron>
+  </body>
 </html>
