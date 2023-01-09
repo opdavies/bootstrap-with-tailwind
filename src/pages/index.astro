@@ -1,0 +1,31 @@
+---
+import Button from "../components/Button.astro";
+import Jumbotron from "../components/Jumbotron.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<Navbar title="Album" />
+
+		<Jumbotron title="Album example">
+			<p>
+				Something short and leading about the collection below—its contents, the
+				creator, etc. Make it short and sweet, but not too short so folks don't
+				simply skip over it entirely.
+			</p>
+
+			<div>
+				<Button text="Main call to action" />
+				<Button text="Secondary action" />
+			</div>
+		</Jumbotron>
+	</body>
+</html>
