@@ -1,5 +1,6 @@
 ---
 import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
 import Jumbotron from "../components/Jumbotron.astro";
 import Navbar from "../components/Navbar.astro";
 ---
@@ -27,5 +28,11 @@ import Navbar from "../components/Navbar.astro";
         <Button shape="rounded" type="secondary" text="Secondary action" />
       </div>
     </Jumbotron>
+
+    <div>
+      {[...Array(9).keys()].map((_) => (
+        <Card />
+      ))}
+    </div>
   </body>
 </html>
