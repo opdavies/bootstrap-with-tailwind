@@ -29,6 +29,8 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
+
     plugin(({ addVariant }) => {
       addVariant("hocus", ["&:hover", "&:focus"]);
     }),
