@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+
+interface Price {
+  button: {
+    text: string;
+  };
+  features: string[];
+  name: string;
+  price: number;
+}
+
+export const name = "Pricing";
+export const prices: Price[] = [
+  {
+    name: "Full",
+    price: 0,
+    features: [
+      "10 users included",
+      "2 GB of storage",
+      "Email support",
+      "Help center access",
+    ],
+    button: {
+      text: "Sign up for free",
+    },
+  },
+  {
+    name: "Pro",
+    price: 15,
+    features: [
+      "20 users included",
+      "10 GB of storage",
+      "Priority email support",
+      "Help center access",
+    ],
+    button: {
+      text: "Get started",
+    },
+  },
+  {
+    name: "Enterprise",
+    price: 29,
+    features: [
+      "30 users included",
+      "15 GB of storage",
+      "Phone and email support",
+      "Help center access",
+    ],
+    button: {
+      text: "Contact us",
+    },
+  },
+];
+---
+
+<BaseLayout title={name}>
+  <!-- <Navbar title={name} /> -->
+
+  <section class="mt-16">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h1 class="text-5xl">{name}</h1>
+      <p class="mt-4 text-xl leading-relaxed">
+        Quickly build an effective pricing table for your potential customers
+        with this Bootstrap example. It's built with default Bootstrap
+        components and utilities with little customization.
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="max-w-5xl px-6 mt-8 mx-auto grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3"
+  >
+    {
+      prices.map((price, i) => (
+        <div class="max-w-sm w-full mx-auto border border-gray-300 overflow-hidden rounded-md shadow-md shadow-gray-200 text-center md:max-w-full">
+          <h2 class="px-4 py-3 text-2xl border-b border-gray-300 bg-gray-100">
+            {price.name}
+          </h2>
+
+          <div class="p-6">
+            <p>
+              <span class="text-4xl">${price.price}</span>
+              <span class="ml-1 text-3xl text-gray-600">
+                / mo<span class="sr-only">nth</span>
+              </span>
+            </p>
+
+            <div class="mt-5">
+              <h3 class="sr-only">Features</h3>
+
+              <ul class="space-y-1">
+                {price.features.map((feature) => (
+                  <li>{feature}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mt-7">
+              <Button
+                inverted={i === 0}
+                shape="rounded"
+                size="large"
+                text={price.button.text}
+                type="primary"
+              />
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </section>
+</BaseLayout>
